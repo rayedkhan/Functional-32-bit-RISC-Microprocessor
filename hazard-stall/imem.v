@@ -4,11 +4,12 @@ input wire [31:0] address;
 
 output wire [31:0] read_data;
 
-reg [31:0] mem [0:255]; // int mem[256];
+reg [31:0] mem [0:255];
 
 integer i;
 initial begin
-// main: two types of hazards
+// Test program. The same instructions as the forwarding variant, so the
+// two designs can be compared on identical input.
     mem[0] = 32'b00100000000010000000000000001010; // addi $t0, $0, 0xA
     mem[1] = 32'b00100000000010010000000000001000; // addi $t1, $0, 0x8
     mem[2] = 32'b00000001000010010101000000100101; // or  $t2, $t0, $t1   - 2 hazards

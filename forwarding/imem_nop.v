@@ -1,10 +1,13 @@
+// Alternative program: hazards resolved in software by padding dependent
+// instructions with nops, the baseline the hardware units replace.
+// To run it, swap `include "imem.v" for `include "imem_nop.v" in top.v.
 module Imem(address, read_data);
 
 input wire [31:0] address;
 
 output wire [31:0] read_data;
 
-reg [31:0] mem [0:255]; // int mem[256];
+reg [31:0] mem [0:255];
 
 integer i;
 initial begin

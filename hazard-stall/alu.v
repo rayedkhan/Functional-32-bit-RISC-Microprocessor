@@ -7,8 +7,6 @@ input wire [31:0] b;
 output reg [31:0] c;
 output wire zero;
 
-// combinational block
-// outputs change whenever an input change
 always @* begin
     case (op)
         0 : c = a + b;

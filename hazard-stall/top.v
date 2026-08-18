@@ -94,15 +94,17 @@ wire [4:0] rs_address_dx;
 
 Register r3 (clk, pc4_fd, pc4_dx);
 
-Mux #(1) temp1 (hazard, c_reg_dst, 1'b0, reg_dst);
-Mux #(1) temp2 (hazard, c_jump, 1'b0, jump);
-Mux #(1) temp3 (hazard, c_branch, 1'b0, branch);
-Mux #(1) temp4 (hazard, c_mem_read, 1'b0, mem_read);
-Mux #(1) temp5 (hazard, c_mem_to_reg, 1'b0, mem_to_reg);
-Mux #(2) temp6 (hazard, c_alu_op, 2'b00, alu_op);
-Mux #(1) temp7 (hazard, c_mem_write, 1'b0, mem_write);
-Mux #(1) temp8 (hazard, c_alu_src, 1'b0, alu_src);
-Mux #(1) temp9 (hazard, c_reg_write, 1'b0, reg_write);
+// On a stall, force every control signal to 0 so the instruction in ID
+// becomes a bubble instead of committing.
+Mux #(1) squash_reg_dst (hazard, c_reg_dst, 1'b0, reg_dst);
+Mux #(1) squash_jump (hazard, c_jump, 1'b0, jump);
+Mux #(1) squash_branch (hazard, c_branch, 1'b0, branch);
+Mux #(1) squash_mem_read (hazard, c_mem_read, 1'b0, mem_read);
+Mux #(1) squash_mem_to_reg (hazard, c_mem_to_reg, 1'b0, mem_to_reg);
+Mux #(2) squash_alu_op (hazard, c_alu_op, 2'b00, alu_op);
+Mux #(1) squash_mem_write (hazard, c_mem_write, 1'b0, mem_write);
+Mux #(1) squash_alu_src (hazard, c_alu_src, 1'b0, alu_src);
+Mux #(1) squash_reg_write (hazard, c_reg_write, 1'b0, reg_write);
 
 Register #(1) r4 (clk, reg_dst   , reg_dst_dx);
 Register #(1) r5 (clk, branch    , branch_dx);
