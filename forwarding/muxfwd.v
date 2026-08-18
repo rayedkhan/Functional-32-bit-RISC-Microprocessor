@@ -12,16 +12,16 @@ output reg [WIDTH-1:0] out;
 always @* begin
     case (flag)
         0 : begin
-            out <= in1;
+            out = in1;
         end
         1 : begin
-            out <= in2;
+            out = in2;
         end
         2 : begin
-            out <= in3;
+            out = in3;
         end
         3 : begin
-            out <= 0;
+            out = 0;
         end
     endcase
 end

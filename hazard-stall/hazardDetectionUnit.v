@@ -12,15 +12,15 @@ output reg hazard;
 always @* begin
 
     if (regWrite_ExMem && (rdAddress_ExMem != 0) && (rdAddress_ExMem == rsAddress_IfId))
-        hazard <= 1;
+        hazard = 1;
     else if (regWrite_MemWb && (rdAddress_MemWb != 0) && (rdAddress_MemWb == rsAddress_IfId))
-        hazard <= 1;
+        hazard = 1;
     else if (regWrite_ExMem && (rdAddress_ExMem != 0) && (rdAddress_ExMem == rtAddress_IfId))
-        hazard <= 1;
+        hazard = 1;
     else if (regWrite_MemWb && (rdAddress_MemWb != 0) && (rdAddress_MemWb == rtAddress_IfId))
-        hazard <= 1;
+        hazard = 1;
     else
-        hazard <= 0;
+        hazard = 0;
 
 end
 

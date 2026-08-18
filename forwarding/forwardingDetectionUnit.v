@@ -14,22 +14,22 @@ output reg[1:0] forwardB;
 always @* begin
 
     if (regWrite_ExMem && (rdAddress_ExMem != 0) && (rdAddress_ExMem == rsAddress_IdEx)) 
-        forwardA <= 2'b10;
+        forwardA = 2'b10;
     else if (regWrite_MemWb && (rdAddress_MemWb != 0) && (rdAddress_MemWb == rsAddress_IdEx)) 
-        forwardA <= 2'b01;
+        forwardA = 2'b01;
     else 
-        forwardA <= 2'b00;
+        forwardA = 2'b00;
 
 end
 
 always @* begin
 
     if (regWrite_ExMem && (rdAddress_ExMem != 0) && (rdAddress_ExMem == rtAddress_IdEx)) 
-        forwardB <= 2'b10;
+        forwardB = 2'b10;
     else if (regWrite_MemWb && (rdAddress_MemWb != 0) && (rdAddress_MemWb == rtAddress_IdEx)) 
-        forwardB <= 2'b01;
+        forwardB = 2'b01;
     else 
-        forwardB <= 2'b00;
+        forwardB = 2'b00;
 
 end
 

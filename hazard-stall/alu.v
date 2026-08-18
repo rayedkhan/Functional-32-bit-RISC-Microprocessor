@@ -11,13 +11,13 @@ output wire zero;
 // outputs change whenever an input change
 always @* begin
     case (op)
-        0 : c <= a + b;
-        1 : c <= a - b;
-        2 : c <= a * b;
-        3 : c <= a / b;
-        4 : c <= a & b;
-        5 : c <= a | b;
-        6 : c <= a ^ b;
+        0 : c = a + b;
+        1 : c = a - b;
+        2 : c = a * b;
+        3 : c = a / b;
+        4 : c = a & b;
+        5 : c = a | b;
+        6 : c = a ^ b;
     endcase
 end
 

@@ -13,7 +13,7 @@ output wire [31:0] rt_value;
 reg [31:0] mem [0:31];
 
 initial begin
-    mem[0] <= 0;
+    mem[0] = 0;
 end
 
 always @(negedge clk) begin
