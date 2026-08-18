@@ -3,7 +3,6 @@
 `include "alucontrol.v"
 `include "control.v"
 `include "dmem.v"
-`include "hazard.v"
 `include "imem.v"
 `include "mux.v"
 `include "pc.v"
