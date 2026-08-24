@@ -1,0 +1,15 @@
+# Icarus Verilog output
+*.vvp
+*.out
+top
+a.out
+
+# Waveform dumps
+*.vcd
+*.fst
+*.lxt
+*.lxt2
+*.gtkw
+
+# macOS
+.DS_Store

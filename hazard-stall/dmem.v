@@ -8,7 +8,7 @@ input wire mem_write;
 
 output wire [31:0] read_data;
 
-reg [31:0] mem [0:255]; // int mem[256];
+reg [31:0] mem [0:255];
 
 always @(posedge clk) begin
     if ( mem_write ) begin
